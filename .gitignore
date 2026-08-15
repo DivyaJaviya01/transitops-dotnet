@@ -1,0 +1,32 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Pp]ublish/
+artifacts/
+*.user
+*.suo
+.vs/
+
+# .NET
+*.db
+*.db-shm
+*.db-wal
+*.log
+appsettings.*.json
+
+# Test results
+[Tt]est[Rr]esult*/
+*.trx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.sln.iml
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
