@@ -20,6 +20,9 @@ appsettings.*.json
 [Tt]est[Rr]esult*/
 *.trx
 
+# Design mockup source (React) — used only to produce Figma wireframes
+design-mockup/
+
 # IDE
 .vscode/
 .idea/
