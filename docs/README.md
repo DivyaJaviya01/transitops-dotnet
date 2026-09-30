@@ -13,12 +13,12 @@ This documentation suite is organized systematically to provide complete clarity
 | [PRD.md](PRD.md) | **Product Requirements Document**: Vision, problem statement, personas, epics, business rules, and acceptance criteria | Product Managers, Stakeholders, Developers |
 | [02_SRS.md](02_SRS.md) | **Software Requirements Specification**: IEEE 830-compliant functional & non-functional requirements, validation rules, business logic | Developers, QA Engineers, Architects |
 | [03_User_Roles_and_Permissions.md](03_User_Roles_and_Permissions.md) | **User Personas & RBAC Matrix**: 5 Role specifications, permission tables, operational boundaries | Security, Product, Developers |
-| [04_System_Architecture_and_Design.md](04_System_Architecture_and_Design.md) | **Architecture & System Design**: ASP.NET Core 10 Clean Architecture, component diagrams, technology stack | Architects, Backend Engineers |
 | [05_Database_Schema_and_ERD.md](05_Database_Schema_and_ERD.md) | **Database Schema & ERD**: Tables, field definitions, indexes, relationships, data dictionary | Data Engineers, Backend Engineers |
 | [06_Workflows_and_State_Machines.md](06_Workflows_and_State_Machines.md) | **Workflows & State Machines**: Sequence diagrams & state transitions for Trips, Maintenance, and Costs | Developers, Business Analysts |
-| [07_UI_UX_Wireframe_Spec.md](07_UI_UX_Wireframe_Spec.md) | **UI/UX Screen Specs & Design Tokens**: Screen-by-screen wireframe layouts, component specs, design tokens for Stitch alignment | UI/UX Designers, Frontend Engineers |
-| [08_Design_Inspiration_and_Styleguide.md](08_Design_Inspiration_and_Styleguide.md) | **Design Inspiration & Minimal Styleguide**: Curated reference websites (Linear, Stripe, Samsara, Vercel) & minimal white color tokens | Designers, Frontend Engineers |
-| [09_Stitch_Wireframe_Prompt_HomePage.md](09_Stitch_Wireframe_Prompt_HomePage.md) | **Stitch Design Prompt & Layout Specification**: Ready-to-use high-fidelity prompt for generating the Operations Dashboard in Stitch | UI/UX Designers |
+| [07_UI_UX_Wireframe_Spec.md](07_UI_UX_Wireframe_Spec.md) | **UI/UX Screen Specs & Design Tokens**: Screen-by-screen wireframe layouts, component specs, design tokens | UI/UX Designers, Frontend Engineers |
+| [10_Project_Structure_and_UI_Rules.md](10_Project_Structure_and_UI_Rules.md) | **Project Structure and UI Rules**: Web Forms folders, MasterPage, naming, Figma sync, single source of truth | Developers |
+| [11_Team_GitHub_Setup.md](11_Team_GitHub_Setup.md) | **Team GitHub Setup**: what to push, branches, environment | Developers |
+| [12_Friend_Setup_Guide.md](12_Friend_Setup_Guide.md) | **Friend Setup Guide**: clone to F5 steps, Web.config, DB import | Developers |
 
 ---
 

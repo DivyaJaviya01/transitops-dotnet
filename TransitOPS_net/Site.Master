@@ -1,0 +1,59 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="TransitOPS_net.Site" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>TransitOps - Smart Transport Operations</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="landing-body">
+            <header class="to-nav">
+                <div class="landing-container to-nav-inner">
+                    <a href="~/Guest/Home.aspx" runat="server" class="to-brand">
+                        <span class="to-brand-mark">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 3h15v13H1z" /><path d="M16 8h4l3 3v5h-7V8z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
+                            </svg>
+                        </span>
+                        TransitOps
+                    </a>
+                    <nav class="to-nav-links">
+                        <a class="to-nav-link" href="#features">Features</a>
+                        <a class="to-nav-link" href="#product">Product</a>
+                        <a class="to-nav-link" href="#stats">About</a>
+                        <a class="to-nav-link" href="#cta">Contact</a>
+                        <a class="to-nav-link" href="~/Admin/Dashboard.aspx" runat="server">Dashboard</a>
+                    </nav>
+                    <div class="to-nav-right">
+                        <a href="~/Guest/SignIn.aspx" runat="server" class="to-btn to-btn-light">Sign In</a>
+                        <a href="~/Guest/SignUp.aspx" runat="server" class="to-btn to-btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </header>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <footer class="to-footer">
+                <div class="landing-container">
+                    <div class="to-footer-grid">
+                        <div class="to-footer-brand">
+                            <span class="to-brand"><span class="to-brand-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z" /><path d="M16 8h4l3 3v5h-7V8z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg></span>TransitOps</span>
+                            <p>The operations platform for modern transportation, shipping, and distribution fleets.</p>
+                        </div>
+                        <div><h4 class="to-footer-col-title">Product</h4><ul class="to-footer-list"><li><a href="~/Admin/Dashboard.aspx" runat="server">Operations Deck</a></li><li><a href="~/FleetManager/Vehicles.aspx" runat="server">Fleet Hub</a></li><li><a href="~/Dispatcher/Trips.aspx" runat="server">Trips</a></li><li><a href="~/FinancialAnalyst/FuelExpenses.aspx" runat="server">Expense Center</a></li></ul></div>
+                        <div><h4 class="to-footer-col-title">Roles</h4><ul class="to-footer-list"><li><a href="~/FleetManager/Vehicles.aspx" runat="server">Fleet Manager</a></li><li><a href="~/Dispatcher/Trips.aspx" runat="server">Dispatcher</a></li><li><a href="~/SafetyOfficer/Drivers.aspx" runat="server">Safety Officer</a></li></ul></div>
+                        <div><h4 class="to-footer-col-title">Account</h4><ul class="to-footer-list"><li><a href="~/Guest/SignIn.aspx" runat="server">Sign In</a></li><li><a href="~/Guest/SignUp.aspx" runat="server">Sign Up</a></li></ul></div>
+                    </div>
+                    <div class="to-footer-bottom"><p>&copy; 2026 TransitOps</p><p>Smart Transport Operations Platform</p></div>
+                </div>
+            </footer>
+        </div>
+        <script src="~/Scripts/app.js"></script>
+    </form>
+</body>
+</html>
