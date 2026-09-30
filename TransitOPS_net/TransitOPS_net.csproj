@@ -70,6 +70,10 @@
     <Content Include="Guest\Home.aspx" />
     <Content Include="Guest\SignIn.aspx" />
     <Content Include="Guest\SignUp.aspx" />
+    <Content Include="Guest\About.aspx" />
+    <Content Include="Guest\Contact.aspx" />
+    <Content Include="Guest\Features.aspx" />
+    <Content Include="Guest\Pricing.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="FleetManager\Vehicles.aspx" />
     <Content Include="FleetManager\Maintenance.aspx" />
