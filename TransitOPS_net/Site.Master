@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
     <title>TransitOps - Smart Transport Operations</title>
     <link href="~/Content/site.css" rel="stylesheet" runat="server" />
     <asp:ContentPlaceHolder ID="head" runat="server">

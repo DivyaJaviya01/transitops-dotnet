@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server">Admin - TransitOps</asp:ContentPlaceHolder></title>
     <link href="~/Content/site.css" rel="stylesheet" runat="server" />
     <asp:ContentPlaceHolder ID="head" runat="server">
