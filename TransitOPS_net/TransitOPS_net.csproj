@@ -107,6 +107,13 @@
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FleetManager\Maintenance.aspx.cs">
+      <DependentUpon>Maintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FleetManager\Maintenance.aspx.designer.cs">
+      <DependentUpon>Maintenance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FleetManager\Vehicles.aspx.cs">
       <DependentUpon>Vehicles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
