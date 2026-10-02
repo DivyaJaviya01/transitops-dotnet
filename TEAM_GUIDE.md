@@ -94,7 +94,7 @@ Each member needs 4-5 commits + PRs before submission.
 
 ## 7. How to copy a page from the design (same process Divya uses)
 
-Source: `design-mockup/` folder (shared separately, NOT in this repo) + `docs/figma_screens/` PNGs (in this repo).
+Source: `design-mockup/` folder (in this repo) + `docs/figma_screens/` PNGs.
 
 File map — open these for your page:
 
