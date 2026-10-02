@@ -45,9 +45,6 @@
             transform: scale(1.01);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
-            box-shadow: none;
-            background: transparent;
-        }
 
         @media (min-width: 1024px) {
             .to-hero-media-box {
