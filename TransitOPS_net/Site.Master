@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
+    <meta charset="utf-8" />
     <title>TransitOps - Smart Transport Operations</title>
-    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" runat="server" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -53,7 +54,7 @@
                 </div>
             </footer>
         </div>
-        <script src="~/Scripts/app.js"></script>
+        <script src='<%= ResolveUrl("~/Scripts/app.js") %>'></script>
     </form>
 </body>
 </html>
