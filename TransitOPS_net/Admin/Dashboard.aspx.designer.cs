@@ -8,8 +8,6 @@ namespace TransitOPS_net.Admin
 {
     public partial class Dashboard
     {
-        protected global::System.Web.UI.WebControls.Button btnExport;
-        protected global::System.Web.UI.WebControls.Button btnNewTrip;
         protected global::System.Web.UI.WebControls.Label lblActiveVehicles;
         protected global::System.Web.UI.WebControls.Label lblAvailableVehicles;
         protected global::System.Web.UI.WebControls.Label lblMaintenance;

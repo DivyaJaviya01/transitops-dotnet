@@ -11,12 +11,6 @@ namespace TransitOPS_net
         protected global::System.Web.UI.WebControls.ContentPlaceHolder TitleContent;
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sidebar;
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkDashboard;
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkVehicles;
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkTrips;
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkDrivers;
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkExpenses;
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }
