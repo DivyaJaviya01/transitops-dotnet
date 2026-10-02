@@ -95,7 +95,7 @@
             (function () {
                 var path = window.location.pathname.toLowerCase();
                 var map = { 'dashboard': 'dashboard', 'vehicles': 'vehicles', 'drivers': 'drivers', 'trips': 'trips', 'fuelexpenses': 'expenses', 'expenses': 'expenses', 'maintenance': 'maintenance', 'reports': 'reports', 'analytics': 'analytics', 'settings': 'settings' };
-                document.querySelectorAll('.sidebar-menu .menu-item[data-page]').forEach(function (a) {
+                document.querySelectorAll('.menu-item[data-page]').forEach(function (a) {
                     var key = a.getAttribute('data-page');
                     for (var k in map) { if (path.indexOf(k) !== -1 && map[k] === key) { a.classList.add('active'); } }
                 });
