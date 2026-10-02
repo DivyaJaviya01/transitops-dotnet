@@ -318,7 +318,7 @@
     <main>
 
         <!-- HERO SECTION -->
-        <section class="landing-container">
+        <section class="landing-container" aria-label="Hero overview section">
 
             <div class="to-hero-split">
 
