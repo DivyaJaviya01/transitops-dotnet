@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
@@ -6,8 +6,17 @@ using System.Web.UI.WebControls;
 
 namespace TransitOPS_net.Guest
 {
+    /// <summary>
+    /// Code-behind for the public Guest Home page.
+    /// Manages data binding for marketing metrics, logos, features, and story slides.
+    /// </summary>
     public partial class Home : System.Web.UI.Page
     {
+        /// <summary>
+        /// Handles page initialization and binds static data collections on initial load.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="e">The event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
