@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Smart Transport Operations Platform" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="TransitOPS_net.Guest.Home" %>
+<%@ Page Title="Smart Transport Operations Platform" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="TransitOPS_net.Guest.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -38,6 +38,13 @@
             min-height: 0;
             border: 0;
             border-radius: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        .to-hero-media-box:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
             box-shadow: none;
             background: transparent;
         }
