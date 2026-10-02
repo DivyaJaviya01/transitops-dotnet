@@ -1,0 +1,428 @@
+.dashboard-page {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 0.3rem 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.dashboard-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: #2a3140;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
+}
+
+.btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-brand);
+  color: var(--accent-brand);
+}
+
+/* Graph Card */
+.graph-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--card-border);
+  margin-bottom: 2rem;
+}
+
+.graph-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.graph-header h3 {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* KPI Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  border: 1px solid var(--card-border);
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.kpi-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-icon .kpi-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.kpi-trend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.kpi-trend.positive {
+  color: var(--trend-positive-fg);
+  background: var(--trend-positive-bg);
+}
+
+.kpi-trend.negative {
+  color: var(--trend-negative-fg);
+  background: var(--trend-negative-bg);
+}
+
+.kpi-card h3 {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.kpi-card .kpi-value {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Bottom Grid: Trips + Activity */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.recent-trips-panel,
+.activity-panel {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-all-link {
+  color: var(--accent-brand);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  opacity: 0.7;
+}
+
+/* Trips Table */
+.trips-list {
+  overflow-x: auto;
+}
+
+.trips-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trips-list thead th {
+  background-color: var(--table-header-bg);
+  padding: 0.85rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.trips-list tbody td {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.trips-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.trips-list tbody tr:hover {
+  background-color: var(--table-row-hover);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge.completed {
+  background-color: var(--badge-success-bg);
+  color: var(--badge-success-fg);
+}
+
+.status-badge.in-progress {
+  background-color: var(--badge-info-bg);
+  color: var(--badge-info-fg);
+}
+
+.status-badge.pending {
+  background-color: var(--badge-warning-bg);
+  color: var(--badge-warning-fg);
+}
+
+/* Activity Feed */
+.activity-list {
+  padding: 0.25rem 0;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.15s;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item:hover {
+  background: var(--table-row-hover);
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.activity-text {
+  margin: 0 0 0.2rem 0;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Settings Form Styles */
+.settings-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.settings-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: 'Geist', sans-serif;
+}
+
+.settings-input:focus {
+  border-color: var(--accent-brand);
+  box-shadow: var(--focus-ring);
+}
+
+@media (max-width: 1024px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-page {
+    padding: 1.25rem;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dashboard-header h1 {
+    font-size: 1.4rem;
+  }
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+  .kpi-card {
+    padding: 1rem;
+  }
+  .kpi-value {
+    font-size: 1.4rem !important;
+  }
+  .graph-card {
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
