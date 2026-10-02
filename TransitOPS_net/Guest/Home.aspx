@@ -364,12 +364,13 @@
 
                             <div class="to-hero-video-wrap">
 
-                                <video class="to-hero-video" src="<%= ResolveUrl(" ~/Images/hero_page.mp4") %>"
+                                <video class="to-hero-video"
                                     autoplay
                                     muted
                                     loop
                                     playsinline
                                     preload="metadata">
+                                    <source src="../Images/hero_page.mp4" type="video/mp4" />
                                 </video>
 
                             </div>
