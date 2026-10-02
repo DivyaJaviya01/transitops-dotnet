@@ -91,3 +91,27 @@ Each member needs 4-5 commits + PRs before submission.
 3. Open the conflicted file, keep both parts, save.
 4. `git add <file>`, `git commit -m "Resolve merge"`, `git push`
 5. Ask in the group if stuck.
+
+## 7. How to copy a page from the design (same process Divya uses)
+
+Source: `design-mockup/` folder (shared separately, NOT in this repo) + `docs/figma_screens/` PNGs (in this repo).
+
+File map — open these for your page:
+
+| Page | Structure (.tsx) | Styles (.css) | Target look |
+|---|---|---|---|
+| Home/landing | `features/landing/LandingPage.tsx` + `components/` | `landing/landing.css` | `screenshots/landing-full.png` |
+| Dashboard | `features/dashboard/DashboardPage.tsx` | `dashboard/Dashboard.css` | `screenshots/dashboard.png` |
+| Vehicles | `features/vehicles/VehiclesPage.tsx` | `components/page.css` | `screenshots/vehicles.png` |
+| Drivers | `features/drivers/DriversPage.tsx` | `components/page.css` | `screenshots/drivers.png` |
+| Trips | `features/trips/TripsPage.tsx` | `components/page.css` | `screenshots/trips.png` |
+| Expenses | `features/expenses/ExpensesPage.tsx` | `components/page.css` | `screenshots/expenses.png` |
+| Login/Register | `features/auth/` | `page.css` | `screenshots/login.png` |
+| Sidebar+topbar (all admin) | `components/layout/` | `layout/layout.css`, `src/index.css` vars | any `screenshots/*.png` sidebar |
+
+Recipe per page:
+1. Read the `.tsx` — copy section order, texts, static data.
+2. Note the `className`s — they already exist in our `Content/site.css` (landing, layout, dashboard, page styles all ported with same names). If one is missing, put page-local `<style>` in your `head` block; Divya merges it later.
+3. Build `.aspx` with `asp:` controls (GridView, Labels, Validators — never plain HTML tables), static `List<>` in code-behind, Session to persist the list.
+4. F5 + compare with target PNG side-by-side + click everything (filters, modals, add, delete).
+5. Commit 1 file → push branch → PR to `develop`.

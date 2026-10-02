@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Admin theme — matches the main site: white base, ink text, hairline borders */
+  --color-bg: #ffffff;
+  --color-accent: #1b4332;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --border-color: #eef0f2;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-brand: #1b4332;
+  --accent-brand-hover: #2d6a4f;
+  --accent-success: #1b4332;
+  --accent-warning: #b8860b;
+  --accent-danger: #c0392b;
+
+  --card-bg: #ffffff;
+  --card-border: #eef0f2;
+  --table-header-bg: #fafafa;
+  --table-row-hover: #f7f8f9;
+  --input-bg: #ffffff;
+  --input-border: #e2e5e9;
+  --surface-elevated: #ffffff;
+  --surface-muted: #fafafa;
+
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(17, 24, 39, 0.06), 0 2px 4px -1px rgba(17, 24, 39, 0.03);
+  --shadow-lg: 0 20px 60px -10px rgba(17, 24, 39, 0.1), 0 10px 20px -5px rgba(17, 24, 39, 0.05);
+
+  --badge-success-bg: #e8f0ec;
+  --badge-success-fg: #14532d;
+  --badge-info-bg: rgba(59, 130, 246, 0.1);
+  --badge-info-fg: #2563eb;
+  --badge-warning-bg: rgba(184, 134, 11, 0.1);
+  --badge-warning-fg: #92400e;
+  --badge-danger-bg: rgba(192, 57, 43, 0.08);
+  --badge-danger-fg: #b91c1c;
+
+  --trend-positive-bg: #e8f0ec;
+  --trend-positive-fg: #14532d;
+  --trend-negative-bg: rgba(192, 57, 43, 0.08);
+  --trend-negative-fg: #b91c1c;
+
+  --status-available-bg: #e8f0ec;
+  --status-available-fg: #14532d;
+  --status-available-dot: #14532d;
+  --status-trip-bg: rgba(59, 130, 246, 0.1);
+  --status-trip-fg: #2563eb;
+  --status-trip-dot: #2563eb;
+  --status-shop-bg: rgba(184, 134, 11, 0.1);
+  --status-shop-fg: #92400e;
+  --status-shop-dot: #92400e;
+  --status-retired-bg: rgba(107, 114, 128, 0.1);
+  --status-retired-fg: #6b7280;
+  --status-retired-dot: #6b7280;
+  --status-duty-bg: rgba(107, 114, 128, 0.1);
+  --status-duty-fg: #6b7280;
+  --status-duty-dot: #6b7280;
+  --status-suspended-bg: rgba(192, 57, 43, 0.08);
+  --status-suspended-fg: #b91c1c;
+  --status-suspended-dot: #b91c1c;
+
+  --avatar-bg: #e8f0ec;
+  --avatar-fg: #14532d;
+  --active-bg: #e8f0ec;
+  --active-fg: var(--accent-brand);
+  --notif-unread-bg: #f4faf6;
+  --notif-dot-bg: var(--accent-brand);
+  --focus-ring: 0 0 0 3px rgba(27, 67, 50, 0.12);
+  --logo-icon-bg: #e8f0ec;
+}
+
+html.dark {
+  /* Dark — True Black Ink + Green (copied from Igris LifeOS dark theme) */
+  --color-bg: #000000;
+  --color-accent: #52b788;
+
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-primary: #f5f2ea;
+  --text-secondary: #a3a099;
+  --accent-brand: #3d8b63;
+  --accent-brand-hover: #52b788;
+  --accent-success: #52b788;
+  --accent-warning: #b8860b;
+  --accent-danger: #f87171;
+
+  --card-bg: #000000;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --table-header-bg: rgba(255, 255, 255, 0.04);
+  --table-row-hover: rgba(255, 255, 255, 0.05);
+  --input-bg: #000000;
+  --input-border: rgba(255, 255, 255, 0.14);
+  --surface-elevated: #000000;
+  --surface-muted: rgba(255, 255, 255, 0.03);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.6), 0 4px 16px -4px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 1px 2px rgba(0, 0, 0, 0.6), 0 8px 30px -8px rgba(0, 0, 0, 0.7);
+
+  --badge-success-bg: rgba(82, 183, 136, 0.15);
+  --badge-success-fg: #52b788;
+  --badge-info-bg: rgba(149, 213, 178, 0.12);
+  --badge-info-fg: #95d5b2;
+  --badge-warning-bg: rgba(184, 134, 11, 0.16);
+  --badge-warning-fg: #fbbf24;
+  --badge-danger-bg: rgba(248, 113, 113, 0.16);
+  --badge-danger-fg: #f87171;
+
+  --trend-positive-bg: rgba(82, 183, 136, 0.15);
+  --trend-positive-fg: #52b788;
+  --trend-negative-bg: rgba(248, 113, 113, 0.15);
+  --trend-negative-fg: #f87171;
+
+  --status-available-bg: rgba(82, 183, 136, 0.15);
+  --status-available-fg: #52b788;
+  --status-available-dot: #52b788;
+  --status-trip-bg: rgba(149, 213, 178, 0.12);
+  --status-trip-fg: #95d5b2;
+  --status-trip-dot: #95d5b2;
+  --status-shop-bg: rgba(184, 134, 11, 0.16);
+  --status-shop-fg: #fbbf24;
+  --status-shop-dot: #fbbf24;
+  --status-retired-bg: rgba(160, 160, 160, 0.12);
+  --status-retired-fg: #8e908c;
+  --status-retired-dot: #8e908c;
+  --status-duty-bg: rgba(160, 160, 160, 0.12);
+  --status-duty-fg: #8e908c;
+  --status-duty-dot: #8e908c;
+  --status-suspended-bg: rgba(248, 113, 113, 0.16);
+  --status-suspended-fg: #f87171;
+  --status-suspended-dot: #f87171;
+
+  --avatar-bg: rgba(82, 183, 136, 0.18);
+  --avatar-fg: #52b788;
+  --active-bg: rgba(82, 183, 136, 0.18);
+  --active-fg: #52b788;
+  --notif-unread-bg: rgba(82, 183, 136, 0.06);
+  --notif-dot-bg: #52b788;
+  --focus-ring: 0 0 0 3px rgba(82, 183, 136, 0.28);
+  --logo-icon-bg: rgba(82, 183, 136, 0.18);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Geist', 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  transition: background-color 0.2s, color 0.2s;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
