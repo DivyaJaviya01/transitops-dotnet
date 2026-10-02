@@ -5,7 +5,7 @@
 <asp:Content ID="c2" ContentPlaceHolderID="head" runat="server">
     <style>
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
-        .section-title { font-family: 'Geist', sans-serif; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.75rem; font-size: 1rem; color: var(--text-primary); }
+        .reports-section-title { font-family: 'Geist', sans-serif; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.75rem; font-size: 1rem; color: var(--text-primary); }
         .selected-row { background-color: rgba(27,67,50,0.04) !important; }
         .stat-group { border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
     </style>
@@ -28,7 +28,7 @@
         <div class="grid-layout">
             <!-- Fleet Assets -->
             <div>
-                <h3 class="section-title">Fleet Assets</h3>
+                <h3 class="reports-section-title">Fleet Assets</h3>
                 <asp:Panel ID="pnlEmpty" runat="server" Visible="false">
                     <p class="empty-state">No vehicles registered yet.</p>
                 </asp:Panel>
@@ -59,7 +59,7 @@
 
             <!-- Analysis View -->
             <div>
-                <h3 class="section-title">Vehicle Telemetry & ROI</h3>
+                <h3 class="reports-section-title">Vehicle Telemetry & ROI</h3>
                 
                 <asp:Panel ID="pnlNoSelection" runat="server" CssClass="table-card" style="padding: 2.5rem; text-align: center;">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
