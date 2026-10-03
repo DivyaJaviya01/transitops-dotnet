@@ -7,9 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransitOPS_net.Guest
-{
-    public partial class Pricing
-    {
+namespace TransitOPS_net.Guest {
+    
+    
+    public partial class Pricing {
+        
+        /// <summary>
+        /// rptPlans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPlans;
+        
+        /// <summary>
+        /// gvComparison control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvComparison;
+        
+        /// <summary>
+        /// rptFaqs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptFaqs;
     }
 }
