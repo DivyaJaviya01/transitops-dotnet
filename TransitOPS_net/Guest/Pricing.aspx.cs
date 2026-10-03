@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace TransitOPS_net.Guest
 {
@@ -109,6 +110,20 @@ namespace TransitOPS_net.Guest
 
             rptPlans.DataSource = plans;
             rptPlans.DataBind();
+        }
+
+        protected void Plans_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType != ListItemType.Item && e.Item.ItemType != ListItemType.AlternatingItem)
+            {
+                return;
+            }
+
+            var features = e.Item.FindControl("rptFeatures") as Repeater;
+            if (features != null)
+            {
+                features.DataBind();
+            }
         }
 
         private void BindComparison()

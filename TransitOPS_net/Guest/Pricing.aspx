@@ -180,7 +180,7 @@
         <section class="to-section hairline-t">
             <div class="landing-container">
                 <div class="to-pricing-grid">
-                    <asp:Repeater ID="rptPlans" runat="server">
+                    <asp:Repeater ID="rptPlans" runat="server" OnItemDataBound="Plans_ItemDataBound">
                         <ItemTemplate>
                             <div class='<%# Convert.ToBoolean(Eval("IsFeatured")) ? "to-price-card is-featured" : "to-price-card" %>'>
                                 <%# Convert.ToBoolean(Eval("IsFeatured")) ? "<span class=\"to-price-tag\">Most Popular</span>" : "" %>
