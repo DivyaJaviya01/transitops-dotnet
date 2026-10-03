@@ -51,8 +51,8 @@ git add TransitOPS_net/FleetManager/Maintenance.aspx
 git commit -m "feat: add maintenance work orders UI"
 git push -u origin <yourname>-<screen>
 
-# 4. on GitHub: Pull Request your branch -> develop
-# ask 1 teammate to review, then merge
+# 4. on GitHub: Pull Request your branch -> main
+# ask 1 teammate to review, then merge (develop is retired, main only)
 ```
 
 Why no conflicts:
@@ -74,7 +74,8 @@ DO NOT:
 - Never edit `bin/ obj/ .vs/ packages/` (auto-ignored by git)
 - Never commit real DB passwords (we have no DB now)
 - Never commit with another member's name/email (check `git config user.name`)
-- Never push directly to `main` or `develop`. Only your branch, then PR.
+- Never push directly to `main`. Only your branch, then PR.
+- Never commit binaries (`.exe`, `.dll`, `.zip`) — `nuget.exe` was removed for this reason.
 
 ## 5. Check equal work
 
