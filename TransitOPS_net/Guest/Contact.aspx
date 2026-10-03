@@ -1,153 +1,229 @@
 <%@ Page Title="Contact Us - TransitOps" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="TransitOPS_net.Guest.Contact" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .contact-hero {
-            padding: 4rem 1.5rem 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: #ffffff;
-            border-radius: 1rem;
-            margin-bottom: 3rem;
-        }
-        .contact-hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .contact-hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 40rem;
-            margin: 0 auto;
-        }
-        .contact-layout {
+        .to-contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1fr;
+            gap: 48px;
         }
-        .contact-form-card {
+        @media (min-width: 1024px) {
+            .to-contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 72px;
+            }
+        }
+
+        .to-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .to-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .to-field label {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--to-ink);
+        }
+        .to-input,
+        .to-textarea,
+        .to-select {
+            width: 100%;
+            border: 1px solid var(--to-line-strong);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14.5px;
+            font-family: inherit;
+            color: var(--to-ink);
             background: #ffffff;
-            border-radius: 0.75rem;
-            padding: 2.5rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
         }
-        .contact-form-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: #334155;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        .form-control-custom {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid #cbd5e1;
-            font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .form-control-custom:focus {
+        .to-input:focus,
+        .to-textarea:focus,
+        .to-select:focus {
             outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            border-color: var(--to-accent);
+            box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.12);
         }
-        .btn-submit-contact {
-            width: 100%;
-            padding: 0.875rem;
-            background: #2563eb;
-            color: #ffffff;
-            font-weight: 600;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
+        .to-textarea {
+            min-height: 130px;
+            resize: vertical;
         }
-        .btn-submit-contact:hover {
-            background: #1d4ed8;
+
+        .to-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
-        .contact-info-card {
-            background: #f8fafc;
-            border-radius: 0.75rem;
-            padding: 2.5rem;
-            border: 1px solid #e2e8f0;
+        .to-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 20px 22px;
+            border: 1px solid var(--to-line);
+            border-radius: 12px;
+            background: #ffffff;
         }
-        .info-item {
-            margin-bottom: 2rem;
+        .to-contact-icon {
+            flex: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: var(--to-accent-soft);
+            color: var(--to-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .info-item h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
+        .to-contact-item h4 {
+            font-size: 14.5px;
+            font-weight: 650;
+            color: var(--to-ink);
+            margin: 0 0 4px;
         }
-        .info-item p {
-            color: #64748b;
+        .to-contact-item p {
+            font-size: 14px;
+            color: var(--to-ink-soft);
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.55;
+        }
+        .to-form-note {
+            font-size: 12.5px;
+            color: var(--to-ink-muted);
+            text-align: center;
+            margin: 0;
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container my-4">
-        <section class="contact-hero" id="contact-hero-section">
-            <h1>Get in Touch with Our Team</h1>
-            <p>Have questions about features, pricing, or enterprise integrations? We're here to help.</p>
+    <div class="landing-body">
+        <!-- Page Hero -->
+        <section class="landing-container to-page-hero" style="padding-top: 140px; padding-bottom: 70px; text-align: center;">
+            <span class="to-eyebrow">Contact</span>
+            <h1 class="to-h2" style="font-size: clamp(2.3rem, 4.5vw, 3.4rem); font-weight: 700; letter-spacing: -0.04em; max-width: 760px; margin: 0 auto 20px;">
+                Talk to the <span class="to-gradient-text">team behind TransitOps</span>
+            </h1>
+            <p class="to-lead" style="max-width: 560px;">
+                Questions about pricing, onboarding, or a custom setup? We usually reply within one business day.
+            </p>
         </section>
 
-        <section class="contact-layout" id="contact-content">
-            <div class="contact-form-card">
-                <h3>Send Us a Message</h3>
-                <div class="form-group">
-                    <label for="txtName">Full Name</label>
-                    <input type="text" id="txtName" class="form-control-custom" placeholder="John Doe" required />
-                </div>
-                <div class="form-group">
-                    <label for="txtEmail">Email Address</label>
-                    <input type="email" id="txtEmail" class="form-control-custom" placeholder="john@transitcompany.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="ddlSubject">Subject / Department</label>
-                    <select id="ddlSubject" class="form-control-custom">
-                        <option value="Sales">Sales Inquiry</option>
-                        <option value="Support">Technical Support</option>
-                        <option value="Partnership">Partnership Opportunities</option>
-                        <option value="General">General Questions</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="txtMessage">Message</label>
-                    <textarea id="txtMessage" class="form-control-custom" rows="4" placeholder="How can we help your fleet?" required></textarea>
-                </div>
-                <button type="button" class="btn-submit-contact" id="btnSubmitContact">Send Message</button>
-            </div>
+        <!-- Main Section -->
+        <section class="to-section hairline-t">
+            <div class="landing-container">
+                <div class="to-contact-grid">
+                    <!-- Left: Form or Success State -->
+                    <div>
+                        <asp:Panel ID="pnlSuccess" runat="server" Visible="false" CssClass="to-card" style="text-align: center; padding: 48px 32px;">
+                            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--to-accent-soft); color: var(--to-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="to-card-title" style="font-size: 20px;">Message sent</h3>
+                            <p class="to-card-desc" style="max-width: 320px; margin: 0 auto;">
+                                Thanks for reaching out. Our team will get back to you within one business day.
+                            </p>
+                        </asp:Panel>
 
-            <div class="contact-info-card">
-                <div class="info-item">
-                    <h4>📍 Head Office</h4>
-                    <p>TransitOps Technologies Inc.<br />100 Mobility Boulevard, Suite 500<br />San Francisco, CA 94105</p>
-                </div>
-                <div class="info-item">
-                    <h4>📧 Email & Support</h4>
-                    <p>Sales: sales@transitops.io<br />Support: support@transitops.io</p>
-                </div>
-                <div class="info-item">
-                    <h4>📞 Phone Support</h4>
-                    <p>Mon - Fri, 8:00 AM - 6:00 PM EST<br />+1 (800) 555-TRAN</p>
+                        <asp:Panel ID="pnlForm" runat="server" CssClass="to-form">
+                            <div class="to-field">
+                                <label for="<%= txtName.ClientID %>">Full name</label>
+                                <asp:TextBox ID="txtName" runat="server" CssClass="to-input" placeholder="Jane Cooper" />
+                                <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Full name is required." Display="Dynamic" ForeColor="Red" Font-Size="12px" />
+                            </div>
+
+                            <div class="to-field">
+                                <label for="<%= txtEmail.ClientID %>">Work email</label>
+                                <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="to-input" placeholder="jane@company.com" />
+                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Work email is required." Display="Dynamic" ForeColor="Red" Font-Size="12px" />
+                            </div>
+
+                            <div class="to-field">
+                                <label for="<%= txtCompany.ClientID %>">Company</label>
+                                <asp:TextBox ID="txtCompany" runat="server" CssClass="to-input" placeholder="Acme Logistics" />
+                            </div>
+
+                            <div class="to-field">
+                                <label for="<%= ddlSubject.ClientID %>">What can we help with?</label>
+                                <asp:DropDownList ID="ddlSubject" runat="server" CssClass="to-select">
+                                    <asp:ListItem Text="General question" Value="General question" Selected="True" />
+                                    <asp:ListItem Text="Sales &amp; pricing" Value="Sales &amp; pricing" />
+                                    <asp:ListItem Text="Onboarding &amp; training" Value="Onboarding &amp; training" />
+                                    <asp:ListItem Text="Partnership" Value="Partnership" />
+                                    <asp:ListItem Text="Something else" Value="Something else" />
+                                </asp:DropDownList>
+                            </div>
+
+                            <div class="to-field">
+                                <label for="<%= txtMessage.ClientID %>">Message</label>
+                                <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="4" CssClass="to-textarea" placeholder="Tell us about your fleet..." />
+                                <asp:RequiredFieldValidator ID="rfvMessage" runat="server" ControlToValidate="txtMessage" ErrorMessage="Message is required." Display="Dynamic" ForeColor="Red" Font-Size="12px" />
+                            </div>
+
+                            <asp:Button ID="btnSubmit" runat="server" Text="Send Message" CssClass="to-btn to-btn-primary to-btn-lg" OnClick="btnSubmit_Click" />
+
+                            <p class="to-form-note">
+                                By submitting, you agree to our Privacy Policy. We never share your data.
+                            </p>
+                        </asp:Panel>
+                    </div>
+
+                    <!-- Right: Contact Info -->
+                    <div class="to-contact-info">
+                        <div class="to-contact-item">
+                            <span class="to-contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@transitops.dev</p>
+                            </div>
+                        </div>
+
+                        <div class="to-contact-item">
+                            <span class="to-contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 010-2030</p>
+                            </div>
+                        </div>
+
+                        <div class="to-contact-item">
+                            <span class="to-contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <div>
+                                <h4>Office</h4>
+                                <p>Operations Hub, Fleet District, Bengaluru, India</p>
+                            </div>
+                        </div>
+
+                        <div class="to-card" style="margin-top: 6px;">
+                            <h3 class="to-card-title">Prefer to start right away?</h3>
+                            <p class="to-card-desc" style="margin-bottom: 20px;">
+                                Set up a workspace in minutes — no credit card required. No sales call needed to see the product.
+                            </p>
+                            <a href='<%= ResolveUrl("~/Guest/SignUp.aspx") %>' class="to-btn to-btn-primary to-btn-lg">Get Started Free</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
