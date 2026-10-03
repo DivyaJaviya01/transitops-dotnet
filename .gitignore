@@ -45,3 +45,6 @@ Desktop.ini
 # Word temp lock files
 ~$*.docx
 ~$*.doc
+
+# Binaries - never commit (use local installs only)
+*.exe

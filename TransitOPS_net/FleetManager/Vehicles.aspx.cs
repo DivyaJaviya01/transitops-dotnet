@@ -171,9 +171,9 @@ namespace TransitOPS_net.FleetManager
         protected string GetTypeIcon(object type)
         {
             string t = type.ToString();
-            if (t == "Truck") return "&#128666;";
-            if (t == "Van") return "&#128690;";
-            return "&#128663;";
+            if (t == "Van") return "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"5\" width=\"13\" height=\"11\" rx=\"1\"/><path d=\"M15 9h4l3 3v4h-7V9z\"/><circle cx=\"6\" cy=\"18.5\" r=\"1.8\"/><circle cx=\"17\" cy=\"18.5\" r=\"1.8\"/></svg>";
+            if (t == "Sedan") return "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 16l1.5-5h11L20 16\"/><rect x=\"3\" y=\"16\" width=\"18\" height=\"3\" rx=\"1\"/><circle cx=\"7.5\" cy=\"18.5\" r=\"1.5\"/><circle cx=\"16.5\" cy=\"18.5\" r=\"1.5\"/></svg>";
+            return "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\" rx=\"1\"/><path d=\"M16 8h4l3 3v5h-7V8z\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg>";
         }
     }
 }
