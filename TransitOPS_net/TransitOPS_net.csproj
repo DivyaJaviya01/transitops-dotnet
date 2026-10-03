@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Guest\Home.aspx" />
-    <Content Include="Guest\About.aspx" />
     <Content Include="Guest\SignIn.aspx" />
     <Content Include="Guest\SignUp.aspx" />
     <Content Include="Guest\About.aspx" />
