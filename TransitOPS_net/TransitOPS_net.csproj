@@ -82,6 +82,7 @@
     <Content Include="Dispatcher\Trips.aspx" />
     <Content Include="SafetyOfficer\Drivers.aspx" />
     <Content Include="FinancialAnalyst\FuelExpenses.aspx" />
+    <Content Include="Guest\Home.aspx" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\chart.umd.min.js" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="Guest\SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Guest\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guest\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="SafetyOfficer\Drivers.aspx.cs">
       <DependentUpon>Drivers.aspx</DependentUpon>
