@@ -15,22 +15,22 @@
 
 <div class="stats-grid">
   <div class="stat-card">
-    <div class="stat-card-icon" style="background:rgba(27,67,50,0.06);color:var(--accent-brand)">&#128666;</div>
+    <div class="stat-card-icon" style="background:rgba(27,67,50,0.06);color:var(--accent-brand)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
     <div class="stat-card-label">Total Fleet</div>
     <div class="stat-card-value"><asp:Label ID="lblTotal" runat="server" Text="8" /> <span class="stat-card-sub">Assets</span></div>
   </div>
   <div class="stat-card">
-    <div class="stat-card-icon" style="background:rgba(45,106,79,0.12);color:#2d6a4f">&#10003;</div>
+    <div class="stat-card-icon" style="background:rgba(45,106,79,0.12);color:#2d6a4f"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
     <div class="stat-card-label">Active (On Trip)</div>
     <div class="stat-card-value"><asp:Label ID="lblOnTrip" runat="server" Text="2" /> <span class="stat-card-sub">Operational</span></div>
   </div>
   <div class="stat-card">
-    <div class="stat-card-icon" style="background:rgba(184,134,11,0.15);color:#fbbf24">&#9889;</div>
+    <div class="stat-card-icon" style="background:rgba(184,134,11,0.15);color:#fbbf24"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
     <div class="stat-card-label">Maintenance</div>
     <div class="stat-card-value"><asp:Label ID="lblInShop" runat="server" Text="2" /> <span class="stat-card-sub">In Shop</span></div>
   </div>
   <div class="stat-card">
-    <div class="stat-card-icon" style="background:rgba(27,67,50,0.06);color:var(--accent-brand)">&#9675;</div>
+    <div class="stat-card-icon" style="background:rgba(27,67,50,0.06);color:var(--accent-brand)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg></div>
     <div class="stat-card-label">Available</div>
     <div class="stat-card-value"><asp:Label ID="lblAvailable" runat="server" Text="3" /> <span class="stat-card-sub">Ready</span></div>
   </div>
