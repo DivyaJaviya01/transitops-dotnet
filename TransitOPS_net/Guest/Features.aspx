@@ -1,93 +1,141 @@
 <%@ Page Title="Features - TransitOps" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Features.aspx.cs" Inherits="TransitOPS_net.Guest.Features" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .features-hero {
-            padding: 4rem 1.5rem 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: #ffffff;
-            border-radius: 1rem;
-            margin-bottom: 3rem;
+        .to-icon-tile {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        .features-hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .features-hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 40rem;
-            margin: 0 auto;
-        }
-        .feature-detail-card {
+        .to-icon-tile.is-blue { background: rgba(59, 130, 246, 0.1); color: #2563eb; }
+        .to-icon-tile.is-green { background: var(--to-accent-soft); color: var(--to-accent); }
+        .to-icon-tile.is-orange { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        .to-icon-tile.is-pink { background: rgba(236, 72, 153, 0.1); color: #db2777; }
+
+        .to-table-wrap {
+            border: 1px solid var(--to-line-strong);
+            border-radius: 14px;
+            overflow: hidden;
             background: #ffffff;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 2rem;
-            transition: box-shadow 0.2s, transform 0.2s;
         }
-        .feature-detail-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+        .to-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14.5px;
         }
-        .feature-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #eff6ff;
-            color: #2563eb;
-            font-weight: 600;
-            font-size: 0.85rem;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-        }
-        .feature-detail-card h3 {
-            font-size: 1.5rem;
+        .to-table th {
+            text-align: left;
+            font-size: 12.5px;
             font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--to-ink-muted);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--to-line);
+            background: #fafbfc;
         }
-        .feature-detail-card p {
-            color: #64748b;
-            line-height: 1.6;
+        .to-table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--to-line);
+            color: var(--to-ink-soft);
+            vertical-align: top;
+        }
+        .to-table tr:last-child td {
+            border-bottom: none;
+        }
+        .to-table td:first-child {
+            color: var(--to-ink);
+            font-weight: 600;
+        }
+        .rainbow-line {
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ec4899);
+            width: 100%;
+            margin-bottom: 40px;
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container my-4">
-        <section class="features-hero" id="features-hero-section">
-            <h1>Powerful Tools for Modern Transit Operations</h1>
-            <p>Explore the comprehensive feature suite designed to boost efficiency, lower operating costs, and ensure passenger safety.</p>
+    <div class="landing-body">
+        <!-- Page Hero -->
+        <section class="landing-container to-page-hero" style="padding-top: 140px; padding-bottom: 70px; text-align: center;">
+            <span class="to-eyebrow">Everything Included</span>
+            <h1 class="to-h2" style="font-size: clamp(2.3rem, 4.5vw, 3.4rem); font-weight: 700; letter-spacing: -0.04em; max-width: 760px; margin: 0 auto 20px;">
+                One platform for the <span class="to-gradient-text">entire fleet lifecycle</span>
+            </h1>
+            <p class="to-lead" style="max-width: 560px;">
+                Seven modules that talk to each other — from acquisition and driver compliance to dispatch, maintenance, and cost analytics. Nothing gets lost between a fuel log and a work order.
+            </p>
         </section>
 
-        <section id="features-list">
-            <div class="feature-detail-card">
-                <span class="feature-badge">GPS & Tracking</span>
-                <h3>Real-Time Telematics & GPS Tracking</h3>
-                <p>Monitor your entire fleet in real-time with sub-second position updates, route playback, geofence alerts, and automated arrival notifications for passengers and dispatchers alike.</p>
+        <!-- Seven Modules Section -->
+        <section class="to-section hairline-t">
+            <div class="landing-container">
+                <div class="to-section-head">
+                    <h2 class="to-h2">The seven modules</h2>
+                    <p class="to-lead">Every module enforces the business rules that keep your operations honest.</p>
+                </div>
+                <div class="to-grid to-grid-3">
+                    <asp:Repeater ID="rptModules" runat="server">
+                        <ItemTemplate>
+                            <div class="to-card">
+                                <div class='<%# "to-icon-tile " + Eval("ColorClass") %>'>
+                                    <%# Eval("IconSvg") %>
+                                </div>
+                                <h3 class="to-card-title"><%# Eval("Title") %></h3>
+                                <p class="to-card-desc"><%# Eval("Description") %></p>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
             </div>
+        </section>
 
-            <div class="feature-detail-card">
-                <span class="feature-badge">Maintenance</span>
-                <h3>Predictive Maintenance & Work Orders</h3>
-                <p>Automate maintenance schedules based on odometer readings and engine hours. Instantly generate digital work orders, track spare parts inventory, and prevent costly breakdown delays.</p>
+        <!-- Business Rules Section -->
+        <section class="to-section hairline-t" id="business-rules">
+            <div class="landing-container">
+                <div class="to-section-head">
+                    <span class="to-eyebrow">Powered by Business Rules</span>
+                    <h2 class="to-h2">Software that guards the details your team forgets</h2>
+                    <p class="to-lead">
+                        Ten mandatory business rules keep the fleet safe — from capacity checks to license expiry validation.
+                    </p>
+                </div>
+                <div class="to-table-wrap">
+                    <asp:GridView ID="gvBusinessRules" runat="server" AutoGenerateColumns="False" CssClass="to-table" GridLines="None">
+                        <Columns>
+                            <asp:BoundField DataField="RuleId" HeaderText="Rule" ItemStyle-Width="90px" HeaderStyle-Width="90px" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" ItemStyle-Width="280px" HeaderStyle-Width="280px" />
+                            <asp:BoundField DataField="Description" HeaderText="What it enforces" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
+        </section>
 
-            <div class="feature-detail-card">
-                <span class="feature-badge">Analytics</span>
-                <h3>Advanced Fuel & Fleet Analytics</h3>
-                <p>Gain actionable insights into fuel consumption, idle time metrics, vehicle performance trends, and driver efficiency scorecards with intuitive Chart.js visualizations.</p>
-            </div>
-
-            <div class="feature-detail-card">
-                <span class="feature-badge">Compliance</span>
-                <h3>Driver Management & Safety Compliance</h3>
-                <p>Maintain digital records of driver licenses, certifications, hours of service (HOS), and safety incident logs to comply with state and federal transportation regulations.</p>
+        <!-- CTA Section -->
+        <section class="to-section hairline-t to-cta">
+            <div class="rainbow-line"></div>
+            <div class="landing-container">
+                <h2 class="to-cta-title">Ready to take your fleet operations seriously?</h2>
+                <p class="to-cta-sub">
+                    Set up a workspace in minutes and get your fleet, drivers, and trips on one calm, clear platform today.
+                </p>
+                <div class="to-hero-actions" style="justify-content: center;">
+                    <a href='<%= ResolveUrl("~/Guest/SignUp.aspx") %>' class="to-btn to-btn-primary to-btn-lg">
+                        Get Started Free
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href='<%= ResolveUrl("~/Guest/Contact.aspx") %>' class="to-btn to-btn-light to-btn-lg">Talk to Sales</a>
+                </div>
             </div>
         </section>
     </div>

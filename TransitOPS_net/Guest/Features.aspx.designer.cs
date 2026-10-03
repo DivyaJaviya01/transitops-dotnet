@@ -7,9 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransitOPS_net.Guest
-{
-    public partial class Features
-    {
+namespace TransitOPS_net.Guest {
+    
+    
+    public partial class Features {
+        
+        /// <summary>
+        /// rptModules control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptModules;
+        
+        /// <summary>
+        /// gvBusinessRules control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvBusinessRules;
     }
 }
