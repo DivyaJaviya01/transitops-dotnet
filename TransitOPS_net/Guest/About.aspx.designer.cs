@@ -7,9 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransitOPS_net.Guest
-{
-    public partial class About
-    {
+namespace TransitOPS_net.Guest {
+    
+    
+    public partial class About {
+        
+        /// <summary>
+        /// rptValues control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptValues;
+        
+        /// <summary>
+        /// rptStats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptStats;
+        
+        /// <summary>
+        /// rptTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptTeam;
     }
 }
