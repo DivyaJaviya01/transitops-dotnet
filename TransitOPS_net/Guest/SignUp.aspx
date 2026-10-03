@@ -1,10 +1,13 @@
-<%@ Page Title="SignUp" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="TransitOPS_net.Guest.SignUp" %>
-
-<asp:Content ID="c1" ContentPlaceHolderID="head" runat="server">
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="TransitOPS_net.Guest.SignUp" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>SignUp - TransitOps</title>
 <style>
 /* CSS from Login.css */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-.auth-page { display: flex; min-height: 100vh; font-family: 'Geist', sans-serif; background-color: #ffffff; margin: -20px; }
+body { margin: 0; padding: 0; overflow: hidden; }
+.auth-page { display: flex; height: 100vh; font-family: 'Geist', sans-serif; background-color: #ffffff; }
 .auth-brand-side { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; position: relative; background-color: #ffffff; }
 .auth-brand-content { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; max-width: 400px; text-align: center; }
 .auth-brand-logo { width: 56px; height: 56px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
@@ -29,9 +32,9 @@
 .auth-watermark { position: absolute; bottom: 1rem; right: 1.5rem; font-size: 0.65rem; color: #1b4332; opacity: 0.25; letter-spacing: 0.05em; font-weight: 500; }
 @media (max-width: 768px) { .auth-page { flex-direction: column; } .auth-brand-side { padding: 3rem 2rem 2rem; border-bottom: 1px solid #eef0f2; } .auth-brand-content { max-width: 100%; } .auth-brand-text h1 { font-size: 1.9rem; } .auth-form-side { padding: 2rem 1.5rem 3rem; border-left: none; } }
 </style>
-</asp:Content>
-
-<asp:Content ID="c2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</head>
+<body>
+    <form id="form1" runat="server">
     <div class="auth-page">
       <div class="auth-brand-side">
         <div class="auth-brand-content">
@@ -92,4 +95,6 @@
         <div class="auth-watermark">TransitOps</div>
       </div>
     </div>
-</asp:Content>
+    </form>
+</body>
+</html>
