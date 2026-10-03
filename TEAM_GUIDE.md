@@ -51,8 +51,8 @@ git add TransitOPS_net/FleetManager/Maintenance.aspx
 git commit -m "feat: add maintenance work orders UI"
 git push -u origin <yourname>-<screen>
 
-# 4. on GitHub: Pull Request your branch -> develop
-# ask 1 teammate to review, then merge
+# 4. on GitHub: Pull Request your branch -> main (F5 your page to test before opening PR!)
+# ask 1 teammate to review, then merge (develop is retired, main only)
 ```
 
 Why no conflicts:
@@ -74,7 +74,9 @@ DO NOT:
 - Never edit `bin/ obj/ .vs/ packages/` (auto-ignored by git)
 - Never commit real DB passwords (we have no DB now)
 - Never commit with another member's name/email (check `git config user.name`)
-- Never push directly to `main` or `develop`. Only your branch, then PR.
+- Never push directly to `main`. Only your branch, then PR.
+- Never commit binaries (`.exe`, `.dll`, `.zip`) - `nuget.exe` was removed for this reason.
+- F5 and test your page locally before opening a PR.
 
 ## 5. Check equal work
 
@@ -87,7 +89,7 @@ Each member needs 4-5 commits + PRs before submission.
 ## 6. If conflict happens
 
 1. Stop. Do NOT force push.
-2. On your branch: `git pull origin develop`
+2. On your branch: `git pull origin main`
 3. Open the conflicted file, keep both parts, save.
 4. `git add <file>`, `git commit -m "Resolve merge"`, `git push`
 5. Ask in the group if stuck.
@@ -114,4 +116,5 @@ Recipe per page:
 2. Note the `className`s — they already exist in our `Content/site.css` (landing, layout, dashboard, page styles all ported with same names). If one is missing, put page-local `<style>` in your `head` block; Divya merges it later.
 3. Build `.aspx` with `asp:` controls (GridView, Labels, Validators — never plain HTML tables), static `List<>` in code-behind, Session to persist the list.
 4. F5 + compare with target PNG side-by-side + click everything (filters, modals, add, delete).
-5. Commit 1 file → push branch → PR to `develop`.
+5. Commit 1 file → push branch → PR to `main`.
+
