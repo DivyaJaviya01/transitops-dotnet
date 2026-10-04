@@ -108,6 +108,25 @@ namespace TransitOPS_net.FleetManager
                     pnlDetails.Visible = true;
                 }
             }
+            else if (e.CommandName == "EditVehicle")
+            {
+                var v = Store.FirstOrDefault(x => x.RegistrationNumber == reg);
+                if (v != null)
+                {
+                    txtReg.Text = v.RegistrationNumber;
+                    txtReg.Enabled = false;
+                    txtName.Text = v.Name;
+                    ddlNewType.SelectedValue = v.Type;
+                    ddlNewStatus.SelectedValue = v.Status;
+                    txtLoad.Text = v.MaxLoadKg.ToString("F0");
+                    txtOdo.Text = v.OdometerKm.ToString("F0");
+                    txtCost.Text = v.AcquisitionCost.ToString("F0");
+                    ViewState["EditReg"] = v.RegistrationNumber;
+                    lblFormTitle.Text = "Edit Vehicle";
+                    btnSave.Text = "Update Vehicle";
+                    pnlAdd.Visible = true;
+                }
+            }
             else if (e.CommandName == "DeleteVehicle")
             {
                 var list = Store;
@@ -124,6 +143,13 @@ namespace TransitOPS_net.FleetManager
 
         protected void btnAddVehicle_Click(object sender, EventArgs e)
         {
+            txtReg.Text = ""; txtName.Text = ""; txtLoad.Text = "0"; txtOdo.Text = "0"; txtCost.Text = "0";
+            txtReg.Enabled = true;
+            ddlNewType.SelectedIndex = 0;
+            ddlNewStatus.SelectedIndex = 0;
+            ViewState["EditReg"] = null;
+            lblFormTitle.Text = "Add New Vehicle";
+            btnSave.Text = "Save Vehicle";
             pnlAdd.Visible = true;
         }
 
@@ -136,22 +162,40 @@ namespace TransitOPS_net.FleetManager
         {
             if (!Page.IsValid) return;
             var list = Store;
-            if (list.Any(x => x.RegistrationNumber.Equals(txtReg.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
-                return;
             double load, odo, cost;
             double.TryParse(txtLoad.Text, out load);
             double.TryParse(txtOdo.Text, out odo);
             double.TryParse(txtCost.Text, out cost);
-            list.Add(new Vehicle
+            string editReg = ViewState["EditReg"] as string;
+            if (!string.IsNullOrEmpty(editReg))
             {
-                RegistrationNumber = txtReg.Text.Trim(),
-                Name = txtName.Text.Trim(),
-                Type = ddlNewType.SelectedValue,
-                Status = ddlNewStatus.SelectedValue,
-                MaxLoadKg = load,
-                OdometerKm = odo,
-                AcquisitionCost = cost
-            });
+                var existing = list.FirstOrDefault(x => x.RegistrationNumber == editReg);
+                if (existing != null)
+                {
+                    existing.Name = txtName.Text.Trim();
+                    existing.Type = ddlNewType.SelectedValue;
+                    existing.Status = ddlNewStatus.SelectedValue;
+                    existing.MaxLoadKg = load;
+                    existing.OdometerKm = odo;
+                    existing.AcquisitionCost = cost;
+                }
+                ViewState["EditReg"] = null;
+            }
+            else
+            {
+                if (list.Any(x => x.RegistrationNumber.Equals(txtReg.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
+                    return;
+                list.Add(new Vehicle
+                {
+                    RegistrationNumber = txtReg.Text.Trim(),
+                    Name = txtName.Text.Trim(),
+                    Type = ddlNewType.SelectedValue,
+                    Status = ddlNewStatus.SelectedValue,
+                    MaxLoadKg = load,
+                    OdometerKm = odo,
+                    AcquisitionCost = cost
+                });
+            }
             Store = list;
             txtReg.Text = ""; txtName.Text = ""; txtLoad.Text = "0"; txtOdo.Text = "0"; txtCost.Text = "0";
             pnlAdd.Visible = false;

@@ -44,10 +44,7 @@
                 transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
             }
 
-            .to-hero-media-box:hover {
-                transform: scale(1.01);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            }
+
 
             @media (min-width: 1024px) {
                 .to-hero-media-box {

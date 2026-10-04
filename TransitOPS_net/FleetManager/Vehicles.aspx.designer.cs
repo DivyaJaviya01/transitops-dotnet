@@ -29,6 +29,7 @@ namespace TransitOPS_net.FleetManager
         protected global::System.Web.UI.WebControls.Label lblDCost;
         protected global::System.Web.UI.WebControls.Button btnCloseDetails;
         protected global::System.Web.UI.WebControls.Panel pnlAdd;
+        protected global::System.Web.UI.WebControls.Label lblFormTitle;
         protected global::System.Web.UI.WebControls.Button btnCloseAdd;
         protected global::System.Web.UI.WebControls.TextBox txtReg;
         protected global::System.Web.UI.WebControls.TextBox txtName;
