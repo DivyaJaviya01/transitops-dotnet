@@ -31,27 +31,27 @@
         <div class="table-wrap">
           <asp:GridView ID="gvLogs" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true" OnRowCommand="gvLogs_RowCommand" DataKeyNames="Id">
             <Columns>
-              <asp:TemplateField HeaderText="Vehicle">
+              <asp:TemplateField HeaderText="Vehicle" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
                   <strong style="font-weight: 700;"><%# Eval("VehicleName") %> (<%# Eval("VehicleId") %>)</strong>
                 </ItemTemplate>
               </asp:TemplateField>
-              <asp:BoundField DataField="Type" HeaderText="Service Type" />
-              <asp:TemplateField HeaderText="Cost">
+              <asp:BoundField DataField="Type" HeaderText="Service Type" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+              <asp:TemplateField HeaderText="Cost" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>$<%# Eval("Cost", "{0:n0}") %></ItemTemplate>
               </asp:TemplateField>
-              <asp:BoundField DataField="StartDate" HeaderText="Start Date" DataFormatString="{0:M/d/yyyy}" />
-              <asp:BoundField DataField="EstimatedCompletionDate" HeaderText="Estimated End" DataFormatString="{0:M/d/yyyy}" />
-              <asp:TemplateField HeaderText="Status">
+              <asp:BoundField DataField="StartDate" HeaderText="Start Date" DataFormatString="{0:M/d/yyyy}" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+              <asp:BoundField DataField="EstimatedCompletionDate" HeaderText="Estimated End" DataFormatString="{0:M/d/yyyy}" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+              <asp:TemplateField HeaderText="Status" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
                   <span class='badge <%# Eval("Status").ToString() == "Closed" ? "badge-success" : "badge-warning" %>'>
                     <span class="badge-dot"></span> <%# Eval("Status") %>
                   </span>
                 </ItemTemplate>
               </asp:TemplateField>
-              <asp:TemplateField HeaderText="Action">
+              <asp:TemplateField HeaderText="Action" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
-                  <div style="display: flex; gap: 0.4rem; align-items: center;">
+                  <div style="display: flex; gap: 0.4rem; align-items: center; justify-content: center;">
                     <asp:LinkButton ID="btnCloseLog" runat="server" CommandName="CloseLog" CommandArgument='<%# Eval("Id") %>' Visible='<%# Eval("Status").ToString() == "Active" %>' CssClass="btn-ghost" style="font-size: 0.72rem; padding: 0.2rem 0.6rem; gap: 0.2rem; display: flex; align-items: center; text-decoration: none; color: inherit;">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Close
                     </asp:LinkButton>

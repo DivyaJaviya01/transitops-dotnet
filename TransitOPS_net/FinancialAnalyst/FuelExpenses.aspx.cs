@@ -118,7 +118,27 @@ namespace TransitOPS_net.FinancialAnalyst
 
         protected void gvExpenses_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "DeleteExpense")
+            if (e.CommandName == "EditExpense")
+            {
+                int id;
+                if (int.TryParse(e.CommandArgument.ToString(), out id))
+                {
+                    var ex = Store.FirstOrDefault(x => x.Id == id);
+                    if (ex != null)
+                    {
+                        ddlExpVehicle.SelectedValue = ex.VehicleReg;
+                        ddlExpVehicle.Enabled = false;
+                        txtAmount.Text = ex.Amount.ToString("F0");
+                        ddlCategory.SelectedValue = ex.Category;
+                        txtDesc.Text = ex.Description == "-" ? "" : ex.Description;
+                        ViewState["EditId"] = ex.Id;
+                        lblExpenseTitle.Text = "Edit Expense Entry";
+                        btnSaveExpense.Text = "Update Expense";
+                        pnlExpense.Visible = true;
+                    }
+                }
+            }
+            else if (e.CommandName == "DeleteExpense")
             {
                 int id;
                 if (int.TryParse(e.CommandArgument.ToString(), out id))
@@ -172,6 +192,13 @@ namespace TransitOPS_net.FinancialAnalyst
 
         protected void btnExpense_Click(object sender, EventArgs e)
         {
+            ddlExpVehicle.Enabled = true;
+            ddlExpVehicle.SelectedIndex = 0;
+            txtAmount.Text = ""; txtDesc.Text = "";
+            ddlCategory.SelectedIndex = 0;
+            ViewState["EditId"] = null;
+            lblExpenseTitle.Text = "Record Operational Expense";
+            btnSaveExpense.Text = "Record Expense";
             pnlExpense.Visible = true;
         }
 
@@ -186,20 +213,39 @@ namespace TransitOPS_net.FinancialAnalyst
             if (string.IsNullOrEmpty(ddlExpVehicle.SelectedValue)) return;
             double amount;
             if (!double.TryParse(txtAmount.Text, out amount)) return;
-            var parts = ddlExpVehicle.SelectedItem.Text.Split(new[] { " (" }, StringSplitOptions.None);
             var list = Store;
-            int id = list.Count > 0 ? list.Max(x => x.Id) + 1 : 1;
-            list.Add(new Expense
+            object editId = ViewState["EditId"];
+            if (editId != null)
             {
-                Id = id,
-                VehicleName = parts[0],
-                VehicleReg = ddlExpVehicle.SelectedValue,
-                Category = ddlCategory.SelectedValue,
-                IsFuel = false,
-                Description = string.IsNullOrWhiteSpace(txtDesc.Text) ? "-" : txtDesc.Text.Trim(),
-                ExpenseDate = DateTime.Today,
-                Amount = amount
-            });
+                int id;
+                if (int.TryParse(editId.ToString(), out id))
+                {
+                    var existing = list.FirstOrDefault(x => x.Id == id);
+                    if (existing != null)
+                    {
+                        existing.Amount = amount;
+                        existing.Category = ddlCategory.SelectedValue;
+                        existing.Description = string.IsNullOrWhiteSpace(txtDesc.Text) ? "-" : txtDesc.Text.Trim();
+                    }
+                }
+                ViewState["EditId"] = null;
+            }
+            else
+            {
+                var parts = ddlExpVehicle.SelectedItem.Text.Split(new[] { " (" }, StringSplitOptions.None);
+                int id = list.Count > 0 ? list.Max(x => x.Id) + 1 : 1;
+                list.Add(new Expense
+                {
+                    Id = id,
+                    VehicleName = parts[0],
+                    VehicleReg = ddlExpVehicle.SelectedValue,
+                    Category = ddlCategory.SelectedValue,
+                    IsFuel = false,
+                    Description = string.IsNullOrWhiteSpace(txtDesc.Text) ? "-" : txtDesc.Text.Trim(),
+                    ExpenseDate = DateTime.Today,
+                    Amount = amount
+                });
+            }
             Store = list;
             txtAmount.Text = ""; txtDesc.Text = "";
             pnlExpense.Visible = false;

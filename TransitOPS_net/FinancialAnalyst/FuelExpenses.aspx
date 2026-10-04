@@ -32,22 +32,27 @@
   <div class="table-wrap">
     <asp:GridView ID="gvExpenses" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true" OnRowCommand="gvExpenses_RowCommand">
       <Columns>
-        <asp:TemplateField HeaderText="Vehicle">
+        <asp:TemplateField HeaderText="Vehicle" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><span style="font-weight:700"><%# Eval("VehicleName") %> (<%# Eval("VehicleReg") %>)</span></ItemTemplate>
         </asp:TemplateField>
-        <asp:BoundField DataField="Category" HeaderText="Expense Category" />
-        <asp:BoundField DataField="Description" HeaderText="Description" />
-        <asp:TemplateField HeaderText="Date">
+        <asp:BoundField DataField="Category" HeaderText="Expense Category" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+        <asp:BoundField DataField="Description" HeaderText="Description" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+        <asp:TemplateField HeaderText="Date" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><%# Eval("ExpenseDate", "{0:M/d/yyyy}") %></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Cost Amount">
+        <asp:TemplateField HeaderText="Cost Amount" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><span style="font-weight:700;color:#f87171">-$<%# Eval("Amount", "{0:N0}") %></span></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Action">
+        <asp:TemplateField HeaderText="Action" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.2rem">
+            <asp:LinkButton ID="lnkEdit" runat="server" CssClass="btn-icon" ToolTip="Edit" CommandName="EditExpense" CommandArgument='<%# Eval("Id") %>'>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>
+            </asp:LinkButton>
             <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn-icon danger" ToolTip="Delete" CommandName="DeleteExpense" CommandArgument='<%# Eval("Id") %>' OnClientClick="return confirm('Delete this entry?');">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
             </asp:LinkButton>
+            </div>
           </ItemTemplate>
         </asp:TemplateField>
       </Columns>
@@ -91,7 +96,7 @@
   <div class="modal-overlay">
     <div class="modal-card" style="max-width:420px">
       <div class="modal-header">
-        <h3>Record Operational Expense</h3>
+        <h3><asp:Label ID="lblExpenseTitle" runat="server" Text="Record Operational Expense" /></h3>
         <asp:Button ID="btnCloseExpense" runat="server" Text="&#10005;" CssClass="modal-close" CausesValidation="false" OnClick="btnCloseExpense_Click" />
       </div>
       <div class="form-field">

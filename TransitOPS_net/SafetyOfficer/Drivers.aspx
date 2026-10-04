@@ -55,9 +55,9 @@
   <div class="table-wrap">
     <asp:GridView ID="gvDrivers" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true" OnRowCommand="gvDrivers_RowCommand">
       <Columns>
-        <asp:TemplateField HeaderText="Personnel Name">
+        <asp:TemplateField HeaderText="Personnel Name" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>
-            <div style="display:flex;align-items:center;gap:0.65rem">
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.65rem;text-align:left">
               <div style="width:36px;height:36px;border-radius:50%;background:rgba(27,67,50,0.06);color:var(--accent-brand);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.75rem;flex-shrink:0"><%# GetInitials(Eval("FullName")) %></div>
               <div>
                 <div style="font-weight:600"><%# Eval("FullName") %></div>
@@ -66,10 +66,10 @@
             </div>
           </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="ID / License">
+        <asp:TemplateField HeaderText="ID / License" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>#<%# Eval("LicenseNumber") %></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Status">
+        <asp:TemplateField HeaderText="Status" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><span class='badge <%# GetBadgeClass(Eval("Status")) %>'><span class="badge-dot"></span> <%# Eval("Status") %></span></ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Safety Score" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
@@ -82,20 +82,27 @@
             </div>
           </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="License Expiry">
+        <asp:TemplateField HeaderText="License Expiry" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>
+            <div style="display:flex;flex-direction:column;align-items:center">
             <div style="font-size:0.82rem"><%# Eval("LicenseExpiryDate", "{0:MMM d, yyyy}") %></div>
             <div style='<%# "font-size:0.68rem;font-weight:700;color:" + GetExpiryColor((DateTime)Eval("LicenseExpiryDate")) %>'><%# GetExpiryText((DateTime)Eval("LicenseExpiryDate")) %></div>
+            </div>
           </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Actions" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right">
+        <asp:TemplateField HeaderText="Actions" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.2rem">
             <asp:LinkButton ID="lnkView" runat="server" CssClass="btn-icon" ToolTip="View Details" CommandName="View" CommandArgument='<%# Eval("LicenseNumber") %>'>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </asp:LinkButton>
+            <asp:LinkButton ID="lnkEdit" runat="server" CssClass="btn-icon" ToolTip="Edit" CommandName="EditDriver" CommandArgument='<%# Eval("LicenseNumber") %>'>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>
             </asp:LinkButton>
             <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn-icon danger" ToolTip="Delete" CommandName="DeleteDriver" CommandArgument='<%# Eval("LicenseNumber") %>' OnClientClick="return confirm('Delete this driver?');">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
             </asp:LinkButton>
+            </div>
           </ItemTemplate>
         </asp:TemplateField>
       </Columns>
@@ -130,7 +137,7 @@
   <div class="modal-overlay">
     <div class="modal-card">
       <div class="modal-header">
-        <h3>Add New Driver</h3>
+        <h3><asp:Label ID="lblFormTitle" runat="server" Text="Add New Driver" /></h3>
         <asp:Button ID="btnCloseAdd" runat="server" Text="&#10005;" CssClass="modal-close" CausesValidation="false" OnClick="btnCloseAdd_Click" />
       </div>
       <div class="form-field">

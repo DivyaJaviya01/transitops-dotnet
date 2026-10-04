@@ -102,6 +102,25 @@ namespace TransitOPS_net.SafetyOfficer
                     pnlDetails.Visible = true;
                 }
             }
+            else if (e.CommandName == "EditDriver")
+            {
+                var d = Store.FirstOrDefault(x => x.LicenseNumber == license);
+                if (d != null)
+                {
+                    txtName.Text = d.FullName;
+                    txtLicense.Text = d.LicenseNumber;
+                    txtLicense.Enabled = false;
+                    ddlNewCat.SelectedValue = d.LicenseCategory;
+                    txtContact.Text = d.ContactNumber;
+                    txtExpiry.Text = d.LicenseExpiryDate.ToString("yyyy-MM-dd");
+                    ddlNewStatus.SelectedValue = d.Status;
+                    txtScore.Text = d.SafetyScore.ToString();
+                    ViewState["EditLicense"] = d.LicenseNumber;
+                    lblFormTitle.Text = "Edit Driver";
+                    btnSave.Text = "Update Driver";
+                    pnlAdd.Visible = true;
+                }
+            }
             else if (e.CommandName == "DeleteDriver")
             {
                 var list = Store;
@@ -118,6 +137,13 @@ namespace TransitOPS_net.SafetyOfficer
 
         protected void btnAddDriver_Click(object sender, EventArgs e)
         {
+            txtName.Text = ""; txtLicense.Text = ""; txtContact.Text = ""; txtExpiry.Text = ""; txtScore.Text = "85";
+            txtLicense.Enabled = true;
+            ddlNewCat.SelectedIndex = 0;
+            ddlNewStatus.SelectedIndex = 0;
+            ViewState["EditLicense"] = null;
+            lblFormTitle.Text = "Add New Driver";
+            btnSave.Text = "Save Driver";
             pnlAdd.Visible = true;
         }
 
@@ -130,22 +156,41 @@ namespace TransitOPS_net.SafetyOfficer
         {
             if (!Page.IsValid) return;
             var list = Store;
-            if (list.Any(x => x.LicenseNumber.Equals(txtLicense.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
-                return;
             DateTime expiry;
             if (!DateTime.TryParse(txtExpiry.Text, out expiry)) return;
             int score;
             if (!int.TryParse(txtScore.Text, out score)) score = 85;
-            list.Add(new Driver
+            score = Math.Max(0, Math.Min(100, score));
+            string editLicense = ViewState["EditLicense"] as string;
+            if (!string.IsNullOrEmpty(editLicense))
             {
-                FullName = txtName.Text.Trim(),
-                LicenseNumber = txtLicense.Text.Trim(),
-                LicenseCategory = ddlNewCat.SelectedValue,
-                ContactNumber = txtContact.Text.Trim(),
-                LicenseExpiryDate = expiry,
-                Status = ddlNewStatus.SelectedValue,
-                SafetyScore = Math.Max(0, Math.Min(100, score))
-            });
+                var existing = list.FirstOrDefault(x => x.LicenseNumber == editLicense);
+                if (existing != null)
+                {
+                    existing.FullName = txtName.Text.Trim();
+                    existing.LicenseCategory = ddlNewCat.SelectedValue;
+                    existing.ContactNumber = txtContact.Text.Trim();
+                    existing.LicenseExpiryDate = expiry;
+                    existing.Status = ddlNewStatus.SelectedValue;
+                    existing.SafetyScore = score;
+                }
+                ViewState["EditLicense"] = null;
+            }
+            else
+            {
+                if (list.Any(x => x.LicenseNumber.Equals(txtLicense.Text.Trim(), StringComparison.OrdinalIgnoreCase)))
+                    return;
+                list.Add(new Driver
+                {
+                    FullName = txtName.Text.Trim(),
+                    LicenseNumber = txtLicense.Text.Trim(),
+                    LicenseCategory = ddlNewCat.SelectedValue,
+                    ContactNumber = txtContact.Text.Trim(),
+                    LicenseExpiryDate = expiry,
+                    Status = ddlNewStatus.SelectedValue,
+                    SafetyScore = score
+                });
+            }
             Store = list;
             txtName.Text = ""; txtLicense.Text = ""; txtContact.Text = ""; txtExpiry.Text = ""; txtScore.Text = "85";
             pnlAdd.Visible = false;

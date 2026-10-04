@@ -25,6 +25,7 @@ namespace TransitOPS_net.FinancialAnalyst
         protected global::System.Web.UI.WebControls.Button btnCancelFuel;
         protected global::System.Web.UI.WebControls.Button btnSaveFuel;
         protected global::System.Web.UI.WebControls.Panel pnlExpense;
+        protected global::System.Web.UI.WebControls.Label lblExpenseTitle;
         protected global::System.Web.UI.WebControls.Button btnCloseExpense;
         protected global::System.Web.UI.WebControls.DropDownList ddlExpVehicle;
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
