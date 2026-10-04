@@ -181,6 +181,13 @@
     <Compile Include="Dispatcher\Trips.aspx.designer.cs">
       <DependentUpon>Trips.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FinancialAnalyst\FuelExpenses.aspx.cs">
+      <DependentUpon>FuelExpenses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinancialAnalyst\FuelExpenses.aspx.designer.cs">
+      <DependentUpon>FuelExpenses.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
