@@ -30,6 +30,7 @@ namespace TransitOPS_net.SafetyOfficer
         protected global::System.Web.UI.WebControls.Label lblDContact;
         protected global::System.Web.UI.WebControls.Button btnCloseDetails;
         protected global::System.Web.UI.WebControls.Panel pnlAdd;
+        protected global::System.Web.UI.WebControls.Label lblFormTitle;
         protected global::System.Web.UI.WebControls.Button btnCloseAdd;
         protected global::System.Web.UI.WebControls.TextBox txtName;
         protected global::System.Web.UI.WebControls.TextBox txtLicense;

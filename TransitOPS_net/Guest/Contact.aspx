@@ -144,6 +144,7 @@
                                 <label for="<%= txtEmail.ClientID %>">Work email</label>
                                 <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="to-input" placeholder="jane@company.com" />
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Work email is required." Display="Dynamic" ForeColor="Red" Font-Size="12px" />
+                                <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ErrorMessage="Enter a valid email address." Display="Dynamic" ForeColor="Red" Font-Size="12px" />
                             </div>
 
                             <div class="to-field">

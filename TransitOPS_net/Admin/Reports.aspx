@@ -38,13 +38,13 @@
                         <asp:GridView ID="gvVehicles" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true" DataKeyNames="RegistrationNumber" OnSelectedIndexChanged="gvVehicles_SelectedIndexChanged">
                             <SelectedRowStyle CssClass="selected-row" />
                             <Columns>
-                                <asp:TemplateField HeaderText="Vehicle">
+                                <asp:TemplateField HeaderText="Vehicle" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <strong style="font-weight: 700;"><%# Eval("Name") %> (<%# Eval("RegistrationNumber") %>)</strong>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Type" HeaderText="Type" />
-                                <asp:TemplateField HeaderText="Action">
+                                <asp:BoundField DataField="Type" HeaderText="Type" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+                                <asp:TemplateField HeaderText="Action" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnSelect" runat="server" CommandName="Select" CssClass="btn-ghost" style="font-size: 0.72rem; padding: 0.2rem 0.6rem; text-decoration: none; color: inherit;">
                                             Analyze

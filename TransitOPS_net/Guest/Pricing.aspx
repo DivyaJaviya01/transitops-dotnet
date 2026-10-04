@@ -154,12 +154,6 @@
             margin: 0;
         }
 
-        .rainbow-line {
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ec4899);
-            width: 100%;
-            margin-bottom: 40px;
-        }
     </style>
 </asp:Content>
 
@@ -258,7 +252,6 @@
 
         <!-- CTA Section -->
         <section class="to-section hairline-t to-cta">
-            <div class="rainbow-line"></div>
             <div class="landing-container">
                 <h2 class="to-cta-title">Start your <span class="to-gradient-text">free trial</span> today</h2>
                 <p class="to-cta-sub">

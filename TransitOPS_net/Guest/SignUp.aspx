@@ -64,16 +64,27 @@ body { margin: 0; padding: 0; overflow: hidden; }
           <div class="form-group">
             <label>Full Name</label>
             <asp:TextBox ID="txtName" runat="server" placeholder="e.g. Jane Smith"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Full name is required." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
           </div>
 
           <div class="form-group">
             <label>Email</label>
             <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" placeholder="you@company.com"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is required." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
+            <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ErrorMessage="Enter a valid email address." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
           </div>
 
           <div class="form-group">
             <label>Password</label>
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Minimum 6 characters"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" placeholder="Re-enter password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvConfirm" runat="server" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm your password." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
+            <asp:CompareValidator ID="cvPasswords" runat="server" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" ErrorMessage="Passwords do not match." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
           </div>
 
           <div class="form-group">

@@ -15,6 +15,7 @@ namespace TransitOPS_net.Guest
 
         protected void btnSignIn_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid) return;
             lblError.Visible = false;
 
             if (string.IsNullOrWhiteSpace(txtEmail.Text))

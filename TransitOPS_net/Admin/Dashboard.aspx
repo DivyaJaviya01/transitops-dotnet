@@ -109,13 +109,13 @@
       <div class="trips-list">
         <asp:GridView ID="gvRecentTrips" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true">
           <Columns>
-            <asp:BoundField DataField="TripCode" HeaderText="Trip" />
-            <asp:BoundField DataField="Driver" HeaderText="Driver" />
-            <asp:BoundField DataField="Route" HeaderText="Route" />
-            <asp:TemplateField HeaderText="Status">
+            <asp:BoundField DataField="TripCode" HeaderText="Trip" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="Driver" HeaderText="Driver" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="Route" HeaderText="Route" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+            <asp:TemplateField HeaderText="Status" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
               <ItemTemplate><span class='status-badge <%# Eval("BadgeClass") %>'><%# Eval("Status") %></span></ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="Time" HeaderText="Time" />
+            <asp:BoundField DataField="Time" HeaderText="Time" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
           </Columns>
         </asp:GridView>
       </div>

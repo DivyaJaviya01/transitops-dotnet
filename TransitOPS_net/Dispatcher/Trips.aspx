@@ -17,27 +17,31 @@
   <div class="table-wrap">
     <asp:GridView ID="gvTrips" runat="server" AutoGenerateColumns="false" GridLines="None" ShowHeader="true" OnRowCommand="gvTrips_RowCommand">
       <Columns>
-        <asp:TemplateField HeaderText="Route">
+        <asp:TemplateField HeaderText="Route" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><span style="font-weight:700"><%# Eval("Source") %> &#8594; <%# Eval("Destination") %></span></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Cargo Load">
+        <asp:TemplateField HeaderText="Cargo Load" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><%# Eval("CargoWeightKg", "{0:N0}") %> kg</ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Distance">
+        <asp:TemplateField HeaderText="Distance" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><%# GetDistanceText(Eval("Status"), Eval("ActualKm"), Eval("PlannedKm")) %></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Vehicle ID">
+        <asp:TemplateField HeaderText="Vehicle ID" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><%# Eval("VehicleName") %> (<%# Eval("VehicleReg") %>)</ItemTemplate>
         </asp:TemplateField>
-        <asp:BoundField DataField="DriverName" HeaderText="Driver Name" />
-        <asp:TemplateField HeaderText="Status">
+        <asp:BoundField DataField="DriverName" HeaderText="Driver Name" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+        <asp:TemplateField HeaderText="Status" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate><span class='badge <%# GetBadgeClass(Eval("Status")) %>'><span class="badge-dot"></span> <%# Eval("Status") %></span></ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Actions">
+        <asp:TemplateField HeaderText="Actions" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
           <ItemTemplate>
-            <div style="display:flex;gap:0.4rem;align-items:center">
-              <asp:LinkButton ID="lnkDispatch" runat="server" CssClass="btn-ghost" ToolTip="Dispatch" CommandName="Dispatch" CommandArgument='<%# Eval("TripCode") %>' Visible='<%# Eval("Status").ToString() == "Draft" %>' style="font-size:0.72rem;padding:0.2rem 0.6rem">&#10148; Dispatch</asp:LinkButton>
-              <asp:LinkButton ID="lnkComplete" runat="server" CssClass="btn-ghost" ToolTip="Complete" CommandName="OpenComplete" CommandArgument='<%# Eval("TripCode") %>' Visible='<%# Eval("Status").ToString() == "Dispatched" %>' style="font-size:0.72rem;padding:0.2rem 0.6rem">&#10003; Complete</asp:LinkButton>
+            <div style="display:flex;gap:0.2rem;align-items:center;justify-content:center">
+              <asp:LinkButton ID="lnkDispatch" runat="server" CssClass="btn-icon" ToolTip="Dispatch" CommandName="Dispatch" CommandArgument='<%# Eval("TripCode") %>' Visible='<%# Eval("Status").ToString() == "Draft" %>'>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              </asp:LinkButton>
+              <asp:LinkButton ID="lnkComplete" runat="server" CssClass="btn-icon" ToolTip="Complete" CommandName="OpenComplete" CommandArgument='<%# Eval("TripCode") %>' Visible='<%# Eval("Status").ToString() == "Dispatched" %>'>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </asp:LinkButton>
               <asp:LinkButton ID="lnkCancel" runat="server" CssClass="btn-icon danger" ToolTip="Cancel Trip" CommandName="CancelTrip" CommandArgument='<%# Eval("TripCode") %>' Visible='<%# Eval("Status").ToString() != "Completed" && Eval("Status").ToString() != "Cancelled" %>' OnClientClick="return confirm('Cancel this trip?');">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </asp:LinkButton>

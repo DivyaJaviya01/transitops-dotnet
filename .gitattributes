@@ -1,0 +1,9 @@
+# Never convert line endings or text-encode these - binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mp4 binary
+*.mdf binary
+*.ldf binary
+*.dll binary
+*.pdb binary
