@@ -11,6 +11,7 @@ namespace TransitOPS_net.Guest
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid) return;
             lblError.Visible = false;
             lblSuccess.Visible = false;
 

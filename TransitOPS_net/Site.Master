@@ -23,10 +23,10 @@
                         TransitOps
                     </a>
                     <nav class="to-nav-links">
-                        <a class="to-nav-link" href="#features">Features</a>
-                        <a class="to-nav-link" href="#product">Product</a>
-                        <a class="to-nav-link" href="#stats">About</a>
-                        <a class="to-nav-link" href="#cta">Contact</a>
+                        <a class="to-nav-link" href="~/Guest/Features.aspx" runat="server">Features</a>
+                        <a class="to-nav-link" href="~/Guest/Pricing.aspx" runat="server">Pricing</a>
+                        <a class="to-nav-link" href="~/Guest/About.aspx" runat="server">About</a>
+                        <a class="to-nav-link" href="~/Guest/Contact.aspx" runat="server">Contact</a>
                         <a class="to-nav-link" href="~/Admin/Dashboard.aspx" runat="server">Dashboard</a>
                     </nav>
                     <div class="to-nav-right">

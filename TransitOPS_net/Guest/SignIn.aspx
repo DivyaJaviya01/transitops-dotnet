@@ -72,11 +72,14 @@ body { margin: 0; padding: 0; overflow: hidden; }
           <div class="form-group">
             <label>Email</label>
             <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" placeholder="example@gmail.com"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is required." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
+            <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ErrorMessage="Enter a valid email address." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
           </div>
 
           <div class="form-group">
             <label>Password</label>
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="12345678"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Password is required." Display="Dynamic" ForeColor="#b91c1c" Font-Size="12px" />
           </div>
 
           <div class="form-group">
